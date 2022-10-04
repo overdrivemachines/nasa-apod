@@ -73,6 +73,14 @@ body {
 }
 
 /* Loader */
+.loader {
+  background: var(--color-bg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Navigation */
 .navigation-container {
@@ -132,6 +140,9 @@ body {
 }
 
 /* Hidden */
+.hidden {
+  display: none;
+}
 
 /* Large Smartphone (Vertical) */
 @media screen and (max-width: 800px) {
