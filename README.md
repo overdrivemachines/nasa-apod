@@ -8,6 +8,7 @@
 - Load More Images - loads 10 fresh images.
 - Images are lazy loaded. Load images only when close to being scrolled to.
 - Mobile Responsive UI
+- Loading Animation using Loaf (https://getloaf.io/)
 
 ![Preview](preview.png)
 

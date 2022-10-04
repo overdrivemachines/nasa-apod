@@ -1,14 +1,66 @@
+@font-face {
+  font-family: "widescreen-ex";
+  src: url("https://use.typekit.net/af/a301ac/00000000000000007735fb6a/30/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n5&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/a301ac/00000000000000007735fb6a/30/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n5&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/a301ac/00000000000000007735fb6a/30/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n5&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "widescreen-ex";
+  src: url("https://use.typekit.net/af/b110fb/00000000000000007735fb65/30/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/b110fb/00000000000000007735fb65/30/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/b110fb/00000000000000007735fb65/30/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "widescreen-ex";
+  src: url("https://use.typekit.net/af/bef4ca/00000000000000007735fb6b/30/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n8&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/bef4ca/00000000000000007735fb6b/30/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n8&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/bef4ca/00000000000000007735fb6b/30/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n8&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+}
+
+:root {
+  --color-bg: #3124c7;
+  --color-text: #000;
+  --color-link: #fff;
+  --color-link-hover: #000;
+  --color-content-hover: #f3727e;
+}
+
 html {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: whitesmoke;
+  background: var(--color-bg);
   overflow-x: hidden;
-  font-family: Verdana, sans-serif;
+  font-family: widescreen-ex, sans-serif;
   font-size: 1rem;
   line-height: 1.8rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -21,7 +73,6 @@ body {
 }
 
 /* Loader */
-
 
 /* Navigation */
 .navigation-container {
@@ -40,13 +91,10 @@ body {
   right: 0;
   width: 100%;
   height: 60px;
-
 }
-
 
 /* Images Container */
 .images-container {
-
   margin-top: 50px;
 }
 
@@ -62,8 +110,6 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-
 .card-body {
   padding: 20px;
 }
@@ -72,8 +118,6 @@ body {
   margin: 10px auto;
   font-size: 24px;
 }
-
-
 
 /* Save Confirmation */
 .save-confirmed {
@@ -89,19 +133,14 @@ body {
 
 /* Hidden */
 
-
 /* Large Smartphone (Vertical) */
 @media screen and (max-width: 800px) {
   body {
     line-height: 1.4rem;
     font-size: 0.9rem;
-
   }
-
 
   .card-title {
     font-size: 20px;
   }
-
-  
 }
