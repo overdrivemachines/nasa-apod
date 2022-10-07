@@ -15,3 +15,5 @@
 Live - https://overdrivemachines.github.io/nasa-apod/
 
 ## References
+
+- Crop Top - Resize Images by cropping them using CSS - https://css-tricks.com/crop-top/
