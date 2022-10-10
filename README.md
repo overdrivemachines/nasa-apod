@@ -29,3 +29,7 @@ Live - https://overdrivemachines.github.io/nasa-apod/
     e.g. `localStorage.setItem("nasaFavorites", JSON.stringify(favorites));`
 - Convert Object to array:
   `arr = Object.values(object1)`
+- Remove the SameSite error
+  - `document.cookie = 'cookie2=value2; SameSite=None; Secure';`
+  - https://github.com/GoogleChromeLabs/samesite-examples/blob/master/javascript.md
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite

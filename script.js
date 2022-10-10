@@ -33,10 +33,20 @@ const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${co
 let resultsArray = [];
 let favorites = {};
 
+function showContent(page) {
+  window.scrollTo({ top: 0, behavior: "instant" });
+  if (page === "results") {
+    favoritesNav.classList.add("hidden");
+    resultsNav.classList.remove("hidden");
+  } else {
+    favoritesNav.classList.remove("hidden");
+    resultsNav.classList.add("hidden");
+  }
+  loader.classList.add("hidden");
+}
+
 function createDOMNodes(page) {
-  console.log("page", page);
   const currentArray = page === "results" ? resultsArray : Object.values(favorites);
-  console.log("currentArray", currentArray);
 
   currentArray.forEach((result) => {
     // Create Card Container
@@ -103,25 +113,37 @@ function createDOMNodes(page) {
 }
 
 function updateDOM(page) {
+  console.log("Page = ", page);
   // Get Favorites from Local Storage
   if (localStorage.getItem("nasaFavorites")) {
     favorites = JSON.parse(localStorage.getItem("nasaFavorites"));
-    console.log("favorites from localstorage", favorites);
   }
+  imagesContainer.textContent = "";
   createDOMNodes(page);
+  showContent(page);
 }
 
 // Get 10 Images from NASA API
 async function getNasaPictures() {
+  // Show Loader
+  loader.classList.remove("hidden");
+
+  // https://github.com/GoogleChromeLabs/samesite-examples/blob/master/javascript.md
+  // Prevent samesite errors
+  document.cookie = "SameSite=None; Secure";
   try {
-    console.log("inside getNasaPictures");
     const response = await fetch(apiUrl);
+
     resultsArray = await response.json();
-    console.log(resultsArray);
-    updateDOM("favorites");
+
+    if (resultsArray["error"]) {
+      loader.textContent = resultsArray["error"]["message"];
+    } else {
+      updateDOM("results");
+    }
   } catch (error) {
     // Catch Error Here
-    console.log(error);
+    console.log("Error: ", error);
   }
 }
 
@@ -131,7 +153,6 @@ function saveFavorite(itemUrl) {
   resultsArray.forEach((item) => {
     if (item.url.includes(itemUrl) && !favorites[itemUrl]) {
       favorites[itemUrl] = item;
-      console.log(JSON.stringify(favorites));
 
       // Show Save Confirmation for 2 seconds
       saveConfirmed.hidden = false;
@@ -147,7 +168,6 @@ function saveFavorite(itemUrl) {
 
 // Remove Item from Favorites
 function removeFavorite(itemUrl) {
-  console.log(this);
   if (favorites[itemUrl]) {
     delete favorites[itemUrl];
 
