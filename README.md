@@ -17,3 +17,15 @@ Live - https://overdrivemachines.github.io/nasa-apod/
 ## References
 
 - Crop Top - Resize Images by cropping them using CSS - https://css-tricks.com/crop-top/
+- Local Storage
+  ```
+  localStorage.clear(); - clears all keys
+  localStorage.getItem("nasaFavorites"); - returns that key's value, or null if the key does not exist
+  localStorage.key(5); - returns the name of the 5th key
+  localStorage.removeItem("nasaFavorites"); - removes the key
+  localStorage.setItem("nasaFavorites", "value"); - store the key value pair
+  ```
+  - Store Objects only after converting them to string:
+    e.g. `localStorage.setItem("nasaFavorites", JSON.stringify(favorites));`
+- Convert Object to array:
+  `arr = Object.values(object1)`
